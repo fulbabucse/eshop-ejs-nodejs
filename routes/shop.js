@@ -7,8 +7,7 @@ const rootDir = require("../helpers/path");
 const adminData = require("./admin");
 
 router.get("/", (req, res) => {
-  console.log(adminData.products);
-  res.sendFile(path.join(rootDir, "views", "shop.html"));
+  res.render("shop", { products: adminData.products, pageTitle: "Shop" });
 });
 
 module.exports = router;

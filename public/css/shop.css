@@ -7,14 +7,15 @@
   margin-top: 10px !important;
 }
 
-.shop-container .title {
+.title {
   font-size: 30px;
   font-weight: 600;
   color: chocolate;
   font-family: "Courier New", Courier, monospace;
 }
-.shop-container .sub_title {
+.sub_title {
   font-size: 18px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: tomato;
+  margin-bottom: 20px;
 }

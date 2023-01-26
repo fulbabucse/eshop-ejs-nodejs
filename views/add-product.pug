@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="/css/shop.css")
+        link(rel="stylesheet", href="/css/products.css")
+        title #{pageTitle}
+    body 
+
+    nav.navbar
+        a.navbar-brand MVC Shop
+          ul.navbar-nav
+            li.nav-item
+                a.nav-link(href="/") Shop 
+            li.nav-item
+                a.nav-link(href="/admin/add-product") Add Product 
+    
+
+    main.container.mx-auto.mt-3.main-section 
+        form.form-control(action="/admin/add-product", method="POST") 
+            input.form-control__input(type="text", name='title', placeholder="Product Name")
+            
+            button.form-control__button(type='submit') Submit
+
+    //- main.container.mx-auto.mt-3.main-section
+
+
+
+
+        
+    
+     

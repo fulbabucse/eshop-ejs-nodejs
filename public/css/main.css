@@ -38,7 +38,7 @@
   list-style: none;
 }
 
-.navbar-nav .nav-item .nav-link {
+.nav-link {
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
