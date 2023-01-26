@@ -1,20 +1,15 @@
-const path = require("path");
+// Dependencies
 const express = require("express");
 
-const rootDir = require("../helpers/path");
-
+// Create Router
 const router = express.Router();
 
-const products = [];
+// Controller
+const productController = require("../controllers/Products");
 
-router.get("/add-product", (req, res, next) => {
-  res.render("add-product", { pageTitle: "Add Product" });
-});
+// Routes
+router.get("/add-product", productController.getAddProduct);
+router.post("/add-product", productController.postAddProduct);
 
-router.post("/add-product", (req, res) => {
-  products.push({ title: req.body.title });
-  res.redirect("/");
-});
-
-exports.routers = router;
-exports.products = products;
+// Exports
+module.exports = router;
