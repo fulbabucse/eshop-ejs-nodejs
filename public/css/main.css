@@ -49,3 +49,10 @@
 .main-section {
   margin-top: 20px;
 }
+
+.not__found_message {
+  text-align: center;
+  font-size: 18px;
+  font-family: Poppins;
+  color: tomato;
+}
