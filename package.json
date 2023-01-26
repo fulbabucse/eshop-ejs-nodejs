@@ -1,16 +1,18 @@
 {
-  "name": "nodejs-complete-guide",
+  "name": "nodejs-complete",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Fulbabu",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "pug": "^3.0.2"
   }
 }
