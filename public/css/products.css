@@ -1,0 +1,27 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-control input {
+  border: 1px solid darkgrey;
+  padding: 10px 7px;
+  border-radius: 3px;
+}
+
+.form-control input:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-control button {
+  width: 100px;
+  padding: 10px 7px;
+  background-color: darkgray;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 3px;
+  cursor: pointer;
+}

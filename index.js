@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 
@@ -5,20 +6,20 @@ const app = express();
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
+// Helpers
+const rootDir = require("./helpers/path");
+
 // Default Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes Middleware
-app.use("/admin", adminRoutes);
-app.use("/shop", shopRoutes);
-
-app.get("/", (req, res) => {
-  res.send("<h2>Home Page</h2>");
-});
+app.use("/admin", adminRoutes.routers);
+app.use(shopRoutes);
 
 app.use("/", (req, res, next) => {
-  res.status(404).send("<h2>Page Not Found</h2>");
+  res.status(404).sendFile(path.join(rootDir, "views", "404.html"));
 });
 
 app.listen(3000, () => {
