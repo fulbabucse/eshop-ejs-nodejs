@@ -19,6 +19,7 @@ const getProductsFromLocalStorage = (callback) => {
 
 module.exports = class Product {
   constructor(title, thumbnail_url, desc, price) {
+    this._id = Date.now().toString();
     this.title = title;
     this.thumbnail_url = thumbnail_url;
     this.desc = desc;
@@ -36,5 +37,12 @@ module.exports = class Product {
 
   static fetchAllProducts(callback) {
     getProductsFromLocalStorage(callback);
+  }
+
+  static findById(id, callback) {
+    getProductsFromLocalStorage((products) => {
+      const product = products.find((product) => product._id === id);
+      callback(product);
+    });
   }
 };

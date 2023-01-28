@@ -23,3 +23,13 @@ exports.getCheckout = (req, res) => {
 exports.getOrders = (req, res) => {
   res.render("shop/orders", { pageTitle: "Checkout" });
 };
+
+exports.getProduct = (req, res) => {
+  const id = req.params.id;
+  Product.findById(id, (product) => {
+    res.render("shop/product-details", {
+      product,
+      pageTitle: product.title,
+    });
+  });
+};
