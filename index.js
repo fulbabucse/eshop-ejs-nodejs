@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Controller
-const notFoundController = require("./controllers/404");
+const errorController = require("./controllers/404Controller");
 
 // Engine
 app.set("view engine", "ejs");
@@ -24,7 +24,7 @@ app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 // Not Found
-app.use(notFoundController.get404Error);
+app.use(errorController.get404Error);
 
 // Listen to server
 app.listen(3000, () => {
