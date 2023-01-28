@@ -18,8 +18,11 @@ const getProductsFromLocalStorage = (callback) => {
 };
 
 module.exports = class Product {
-  constructor(title) {
+  constructor(title, thumbnail_url, desc, price) {
     this.title = title;
+    this.thumbnail_url = thumbnail_url;
+    this.desc = desc;
+    this.price = price;
   }
 
   save() {
