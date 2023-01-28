@@ -1,23 +1,29 @@
 const path = require("path");
 const fs = require("fs");
 
+const basePath = path.join(
+  path.dirname(require.main.filename),
+  "data",
+  "products.json"
+);
+
+const getProductsFromLocalStorage = (callback) => {
+  fs.readFile(basePath, (err, fileContent) => {
+    if (err) {
+      return callback([]);
+    } else {
+      callback(JSON.parse(fileContent));
+    }
+  });
+};
+
 module.exports = class Product {
   constructor(title) {
     this.title = title;
   }
 
   save() {
-    const basePath = path.join(
-      path.dirname(require.main.filename),
-      "data",
-      "products.json"
-    );
-
-    fs.readFile(basePath, (err, fileContent) => {
-      let products = [];
-      if (!err) {
-        products = JSON.parse(fileContent);
-      }
+    getProductsFromLocalStorage((products) => {
       products.push(this);
       fs.writeFile(basePath, JSON.stringify(products), (err) => {
         console.log(err);
@@ -26,17 +32,6 @@ module.exports = class Product {
   }
 
   static fetchAllProducts(callback) {
-    const basePath = path.join(
-      path.dirname(require.main.filename),
-      "data",
-      "products.json"
-    );
-
-    fs.readFile(basePath, (err, fileContent) => {
-      if (err) {
-        callback([]);
-      }
-      callback(JSON.parse(fileContent));
-    });
+    getProductsFromLocalStorage(callback);
   }
 };
