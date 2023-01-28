@@ -1,0 +1,38 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+  <%- include('../includes/navbar.ejs') %>
+
+  <main class="my-4 px-4 lg:px-20">
+    <p class="text-center text-xl font-semibold text-gray-800">
+      List of all Products
+    </p>
+
+    <% if(products.length > 0) { %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+      <% for (let product of products) { %>
+      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <img class="w-full" src="/assets/Apple-iPhone-14.jpg" alt="Mountain" />
+        <div class="px-6 py-4">
+          <div class="font-semibold text-lg mb-2"><%= product.title %></div>
+          <p class="text-gray-700 text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <button
+            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+          >
+            Buy Now
+          </button>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <% } else { %>
+
+    <h1 class="not__found_message">Not Product Found</h1>
+
+    <% } %>
+  </main>
+</body>
